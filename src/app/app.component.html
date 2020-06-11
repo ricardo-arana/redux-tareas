@@ -1,15 +1,29 @@
 <div class="container">
   <h1>Lista de tareas</h1>
-
-<form>
+<div class="container-sm">
   <div class="input-group">
-      <input type="text" class="form-control" #tareaInput >
-    <div class="input-group-append">
-       <button class="btn btn-outline-info" (click)="agregarTarea(tareaInput.value)" type="button">Agregar Tarea</button>
-    </div>
+    <input type="text" class="form-control" #tareaInput >
+  <div class="input-group-append">
+     <button class="btn btn-outline-info" (click)="agregarTarea(tareaInput.value)" type="button">Agregar Tarea</button>
   </div>
-</form>
-<ul class="list-group mt-3">
-  <li *ngFor="let tarea of tareas" class="list-group-item">{{ tarea.nombre }}</li>
-</ul>
 </div>
+
+<ul class="list-group mt-3">
+<li *ngFor="let tarea of tareas" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">{{ tarea.nombre }}
+  <a (click)="borrarTarea(tarea.nombre)">
+    <span  class="badge badge-primary badge-pill">
+    x
+  </span>
+</a>
+</li>
+</ul>
+<h3>Tareas completadas</h3>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    Cras justo odio
+  </a>
+</div>
+</div>
+</div>
+
+ 

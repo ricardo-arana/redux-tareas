@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 @NgModule({
   declarations: [
     AppComponent
@@ -15,7 +16,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     StoreModule.forRoot({appStore: appReducer}),
     StoreDevtoolsModule.instrument({
-      maxAge: 25
+      maxAge: 25,
+      logOnly: environment.production
   })
 
   ],
