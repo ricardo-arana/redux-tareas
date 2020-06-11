@@ -16,6 +16,7 @@ export class AppComponent {
   constructor(private store: Store<AppState>) {
     this.store.select(getTareas).subscribe( obj => {
       console.log(obj);
+      this.tareas = obj;
     });
   }
 

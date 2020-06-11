@@ -7,7 +7,7 @@ import { Tarea } from '../models/tarea.model';
 const _appReducer = createReducer(initialAppState,
     on(agregarTarea, (state, {tarea}) => {
         let tareas: Tarea[] = [...state.tareas, tarea];
-        return ({...state, tareas});
+        return ({...state, tareas}); // tareas: tareas
     })
     );
 
