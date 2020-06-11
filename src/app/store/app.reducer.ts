@@ -1,13 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
-import { initialAppState } from './app.state';
+import { initialAppState, getTareas } from './app.state';
 import { agregarTarea } from './app.actions';
+import { Tarea } from '../models/tarea.model';
 
 
 const _appReducer = createReducer(initialAppState,
     on(agregarTarea, (state, {tarea}) => {
-        const tareas_nuevas = state.tareas;
-        tareas_nuevas.push(tarea);
-        return ({...state, tareas: tareas_nuevas})})
+        let tareas: Tarea[] = [...state.tareas, tarea];
+        return ({...state, tareas});
+    })
     );
 
 export function appReducer(state, action) {

@@ -3,13 +3,13 @@
 
 <form>
   <div class="input-group">
-      <input type="text" class="form-control" id="validatedInputGroupCustomFile" >
+      <input type="text" class="form-control" #tareaInput >
     <div class="input-group-append">
-       <button class="btn btn-outline-info" type="button">Agregar Tarea</button>
+       <button class="btn btn-outline-info" (click)="agregarTarea(tareaInput.value)" type="button">Agregar Tarea</button>
     </div>
   </div>
 </form>
 <ul class="list-group mt-3">
-  <li class="list-group-item">Cras justo odio</li>
+  <li *ngFor="let tarea of tareas" class="list-group-item">{{ tarea.nombre }}</li>
 </ul>
 </div>
